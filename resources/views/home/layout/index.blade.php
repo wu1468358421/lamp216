@@ -1,6 +1,25 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
+<script type="text/javascript" src="/h/js/jquery-1.11.1.min_044d0927.js"></script>
+<script type="text/javascript" src="/h/js/jquery.bxslider_e88acd1b.js"></script>
+
+<script type="text/javascript" src="/h/js/jquery-1.8.2.min.js"></script>
+<script type="text/javascript" src="/h/js/menu.js"></script>    
+    
+<script type="text/javascript" src="/h/js/select.js"></script>
+
+<script type="text/javascript" src="/h/js/lrscroll.js"></script>
+
+<script type="text/javascript" src="/h/js/iban.js"></script>
+<script type="text/javascript" src="/h/js/fban.js"></script>
+<script type="text/javascript" src="/h/js/f_ban.js"></script>
+<script type="text/javascript" src="/h/js/mban.js"></script>
+<script type="text/javascript" src="/h/js/bban.js"></script>
+<script type="text/javascript" src="/h/js/hban.js"></script>
+<script type="text/javascript" src="/h/js/tban.js"></script>
+    
+    <script type="text/javascript" src="/h/js/lrscroll_1.js"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
    <link type="text/css" rel="stylesheet" href="/h/css/style.css" />
     <!--[if IE 6]>
@@ -9,25 +28,7 @@
            EvPNG.fix('div, ul, img, li, input, a'); 
         </script>
     <![endif]-->    
-    <script type="text/javascript" src="/h/js/jquery-1.11.1.min_044d0927.js"></script>
-    <script type="text/javascript" src="/h/js/jquery.bxslider_e88acd1b.js"></script>
     
-    <script type="text/javascript" src="/h/js/jquery-1.8.2.min.js"></script>
-    <script type="text/javascript" src="/h/js/menu.js"></script>    
-        
-    <script type="text/javascript" src="/h/js/select.js"></script>
-    
-    <script type="text/javascript" src="/h/js/lrscroll.js"></script>
-    
-    <script type="text/javascript" src="/h/js/iban.js"></script>
-    <script type="text/javascript" src="/h/js/fban.js"></script>
-    <script type="text/javascript" src="/h/js/f_ban.js"></script>
-    <script type="text/javascript" src="/h/js/mban.js"></script>
-    <script type="text/javascript" src="/h/js/bban.js"></script>
-    <script type="text/javascript" src="/h/js/hban.js"></script>
-    <script type="text/javascript" src="/h/js/tban.js"></script>
-    
-    <script type="text/javascript" src="/h/js/lrscroll_1.js"></script>
     @section('css')
 
     @show
@@ -116,7 +117,7 @@
         <!--End 所在收货地区 End-->
         <span class="fr">
         @if(session('home_user'))
-            <span class="fl">你好<a href="/home/login">{{ session('home_user')->uname }}</a>&nbsp; <a href="Regist.html" style="color:#ff4e00;">会员</a>&nbsp;|&nbsp;<a href="#">我的订单</a>&nbsp;|</span>
+            <span class="fl">你好<a href="/home/login">{{ session('home_user')->uname }}</a>&nbsp; <a href="Regist.html" style="color:#ff4e00;">会员</a>&nbsp;&nbsp;<a href="/home/outlogin">退出</a>&nbsp;|&nbsp;<a href="#">我的订单</a>&nbsp;|</span>
         @else
             <span class="fl">你好，请<a href="/home/login">登录</a>&nbsp; <a href="Regist.html" style="color:#ff4e00;">免费注册</a>&nbsp;|&nbsp;<a href="#">我的订单</a>&nbsp;|</span>
         @endif

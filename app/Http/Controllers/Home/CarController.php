@@ -134,14 +134,23 @@ class CarController extends BaseController
             $uid = session('home_user')->id;
             $data = DB::table('cart')->where('uid',$uid)->get();
             $jj = [];
+            $priceCount = 0;
             foreach($data as $k=>$v){
-                $sum = $v->num;
+                $num = $v->num;
                 $gid = $v->gid;
 
                 $price = DB::table('goods')->where('id',$gid)->select('price')->get();
                 //dump($v->num);
                 //dump($price);
+                foreach($price as $k=>$v){
+                    $price=$v->price;
+                }
+                $priceCount += $price * $num;
+                
             }
+            
+            return $priceCount;
+
         }else{
             if(empty($_SESSION['car'])){
                 $priceCount = 0;
@@ -161,13 +170,24 @@ class CarController extends BaseController
     {
         $type = $request->input('type');
         $num  = $request->input('num');
+        //dd($num);
         $num = $num + $type;
         if($num <= 1){
             $num = 1;
         }
         
-        $data['uid'] = session('home_user')->id;
-        // $data['gid'] = 
+        // $data['uid'] = session('home_user')->id;
+        // $data['gid'] = $request->input('gid');
+        $uid = session('home_user')->id;
+        $gid = $request->input('gid');
+        //dd($num);
+        //\DB::connection()->enableQueryLog();  // 开启QueryLog
+        $res = DB::table('cart')->where(['uid'=>$uid,'gid'=>$gid])->update(['num'=>$num]);
+        // $res = DB::table('cart')->where('uid',$uid)->where('gid',$gid)->update(['num'=>$num]);
+        //dd(\DB::getQueryLog());
+        if (!$res) {
+           echo '111111';
+        }
         // $data['num'] =
         // $data['creaeted_at'] = 
 

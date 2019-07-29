@@ -1,5 +1,7 @@
 @extends('home.layout.index')
 
+
+
 @section('css')
 <script type="text/javascript" src="/h/js/n_nav.js"></script>
 @endsection

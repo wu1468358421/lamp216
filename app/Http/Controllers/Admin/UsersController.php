@@ -50,6 +50,7 @@ class UsersController extends Controller
     {
         //$this->data();
         //接收搜索的参数
+        //dd(route('bb'));
         $search_uname = $request->input('search_uname','');
         $search_email = $request->input('search_email','');
       

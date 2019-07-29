@@ -32,6 +32,41 @@
 <!-- Theme Stylesheet -->
 <link rel="stylesheet" type="text/css" href="/admins/css/mws-theme.css" media="screen">
 <link rel="stylesheet" type="text/css" href="/admins/css/themer.css" media="screen">
+<!-- JavaScript Plugins -->
+<script src="/admins/js/libs/jquery-1.8.3.min.js"></script>
+<script src="/admins/js/libs/jquery.mousewheel.min.js"></script>
+<script src="/admins/js/libs/jquery.placeholder.min.js"></script>
+<script src="/admins/custom-plugins/fileinput.js"></script>
+
+<!-- jQuery-UI Dependent Scripts -->
+<script src="/admins/jui/js/jquery-ui-1.9.2.min.js"></script>
+<script src="/admins/jui/jquery-ui.custom.min.js"></script>
+<script src="/admins/jui/js/jquery.ui.touch-punch.js"></script>
+
+<!-- Plugin Scripts -->
+<script src="/admins/plugins/datatables/jquery.dataTables.min.js"></script>
+<!--[if lt IE 9]>
+<script src="/admins/js/libs/excanvas.min.js"></script>
+<![endif]-->
+<script src="/admins/plugins/flot/jquery.flot.min.js"></script>
+<script src="/admins/plugins/flot/plugins/jquery.flot.tooltip.min.js"></script>
+<script src="/admins/plugins/flot/plugins/jquery.flot.pie.min.js"></script>
+<script src="/admins/plugins/flot/plugins/jquery.flot.stack.min.js"></script>
+<script src="/admins/plugins/flot/plugins/jquery.flot.resize.min.js"></script>
+<script src="/admins/plugins/colorpicker/colorpicker-min.js"></script>
+<script src="/admins/plugins/validate/jquery.validate-min.js"></script>
+<script src="/admins/custom-plugins/wizard/wizard.min.js"></script>
+
+<!-- Core Script -->
+<script src="/admins/bootstrap/js/bootstrap.min.js"></script>
+<script src="/admins/js/core/mws.js"></script>
+
+<!-- Themer Script (Remove if not needed) -->
+<script src="/admins/js/core/themer.js"></script>
+
+<!-- Demo Scripts (remove if not needed) -->
+<script src="/admins/js/demo/demo.dashboard.js"></script>
+<meta name="csrf-token" content="{{ csrf_token() }}">
 
 <title>MWS Admin - Dashboard</title>
 
@@ -203,7 +238,25 @@
                             <li><a href="/admin/column/create">栏目添加</a></li>
                         </ul>
                     </li>
+
+                    <li>
+                        <a href="#"><i class="icon-user"></i>商品管理</a>
+                        <ul>
+                            <li><a href="/admin/goods">商品列表</a></li>
+                            <li><a href="/admin/goods/create">商品添加</a></li>
+                            <li><a href="">上架商品</a></li>
+                            <li><a href="">下架商品</a></li>
+                            <li><a href="">商品库存</a></li>
+                        </ul>
+                    </li>
                     
+                    <li>
+                        <a href="#"><i class="icon-user"></i>品牌管理</a>
+                        <ul>
+                            <li><a href="/admin/brand">品牌列表</a></li>
+                            <li><a href="/admin/brand/create">品牌添加</a></li>
+                        </ul>
+                    </li>
                 </ul>
             </div>         
         </div>
@@ -243,40 +296,6 @@
         
     </div>
 
-    <!-- JavaScript Plugins -->
-    <script src="/admins/js/libs/jquery-1.8.3.min.js"></script>
-    <script src="/admins/js/libs/jquery.mousewheel.min.js"></script>
-    <script src="/admins/js/libs/jquery.placeholder.min.js"></script>
-    <script src="/admins/custom-plugins/fileinput.js"></script>
     
-    <!-- jQuery-UI Dependent Scripts -->
-    <script src="/admins/jui/js/jquery-ui-1.9.2.min.js"></script>
-    <script src="/admins/jui/jquery-ui.custom.min.js"></script>
-    <script src="/admins/jui/js/jquery.ui.touch-punch.js"></script>
-
-    <!-- Plugin Scripts -->
-    <script src="/admins/plugins/datatables/jquery.dataTables.min.js"></script>
-    <!--[if lt IE 9]>
-    <script src="/admins/js/libs/excanvas.min.js"></script>
-    <![endif]-->
-    <script src="/admins/plugins/flot/jquery.flot.min.js"></script>
-    <script src="/admins/plugins/flot/plugins/jquery.flot.tooltip.min.js"></script>
-    <script src="/admins/plugins/flot/plugins/jquery.flot.pie.min.js"></script>
-    <script src="/admins/plugins/flot/plugins/jquery.flot.stack.min.js"></script>
-    <script src="/admins/plugins/flot/plugins/jquery.flot.resize.min.js"></script>
-    <script src="/admins/plugins/colorpicker/colorpicker-min.js"></script>
-    <script src="/admins/plugins/validate/jquery.validate-min.js"></script>
-    <script src="/admins/custom-plugins/wizard/wizard.min.js"></script>
-
-    <!-- Core Script -->
-    <script src="/admins/bootstrap/js/bootstrap.min.js"></script>
-    <script src="/admins/js/core/mws.js"></script>
-
-    <!-- Themer Script (Remove if not needed) -->
-    <script src="/admins/js/core/themer.js"></script>
-
-    <!-- Demo Scripts (remove if not needed) -->
-    <script src="/admins/js/demo/demo.dashboard.js"></script>
-
 </body>
 </html>

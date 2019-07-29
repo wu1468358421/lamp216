@@ -63,6 +63,13 @@ Route::group(['middleware'=>['login']],function(){
 	Route::get('admin/column/update/{id}','Admin\ColumnController@update');
 	//后台栏目添加 修改 提交
 	Route::get('admin/column/destroy/{id}','Admin\ColumnController@destroy');
+
+	//后台商品 管理
+	Route::post('admin/goods/getCate', 'Admin\GoodsController@getCate');
+	Route::resource('admin/goods','Admin\GoodsController');
+
+	//后台品牌 管理
+	Route::resource('admin/brand','Admin\BrandController');
 });
 
 
@@ -83,6 +90,8 @@ Route::get('home/register/changeStatus/{id}/{token}','Home\RegisterController@ch
 Route::get('home/login','Home\LoginController@login');
 //前台 执行 登陆
 Route::post('home/dologin','Home\LoginController@dologin');
+//前台 执行 退出登陆
+Route::get('home/outlogin','Home\LoginController@outLogin');
 
 //商品列表页面
 Route::get('home/list','Home\ListController@index');

@@ -1,5 +1,7 @@
 @extends('home.layout.index')
 
+
+
 @section('css')
 <script type="text/javascript" src="/h/js/n_nav.js"></script>
 @endsection
@@ -37,17 +39,29 @@
 			    <?php $i++ ?>
             <td>
             	<div class="c_s_img"><img src="/h/images/c_1.jpg" width="73" height="73" /></div>
+              @if(session('home_user'))
                 {{ $v->goods->title }}
+              @else
+                {{ $v->title }} 
+              @endif
             </td>
             <td align="center">颜色：灰色</td>
             <td align="center">
             	<div class="c_num">
                     <input type="button" value="" onclick="updateCart($(this), -1);" class="car_btn_1" />
-                	<input type="text" value="{{ $v->num }}" name="" class="car_ipt" />  
+                	<input type="text" value="{{ $v->num }}" name="" class="car_ipt" gid="{{ $v->gid }}"/>  
                     <input type="button" value="" onclick="updateCart(jq(this), 1);" class="car_btn_2" />
                 </div>
             </td>
-            <td align="center" style="color:#ff4e00;">￥{{ $v->goods->price * $v->num}}</td>
+             
+            <td align="center" style="color:#ff4e00;">
+              ￥
+              @if(session('home_user'))
+                {{ $v->goods->price * $v->num }}
+              @else
+                {{ $v->price * $v->num }} 
+              @endif
+            </td>
             <td align="center">26R</td>
             <td align="center"><a onclick="ShowDiv('MyDiv','fade')">删除</a>&nbsp; &nbsp;<a href="#">加入收藏</a></td>
           </tr>
@@ -96,19 +110,23 @@
       function updateCart(that, type)
       {
         let num = that.siblings('.car_ipt').val();
+        let gid = that.siblings('.car_ipt').attr("gid");
+        //console.log(gid);
         // num = parseInt(num) + type;
         // that.siblings('.car_ipt').val(num);
         //alert($);
         //console.log(type);
-
-        $.get('/home/car/goodsadd',{type:type,num},function(res){
-          console.log(res);
+        //console.log(num);
+        $.get('/home/car/goodsadd',{type:type,num:num,gid:gid},function(res){
+          that.siblings('.car_ipt').val(res);
         },'html');
       }
 
       $('.c_num .car_ipt').on('change', function(){
+          let gid = $(this).attr("gid");
+          console.log(gid);
           let num = $(this).val();
-          $.get('/home/car/goodsadd',{num:num},function(res){
+          $.get('/home/car/goodsadd',{num:num,gid:gid},function(res){
             console.log(res);
         },'html');
       })

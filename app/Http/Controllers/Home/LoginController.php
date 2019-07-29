@@ -9,6 +9,14 @@ use Hash;
 
 class LoginController extends Controller
 {
+    //退出登陆
+    public function outLogin()
+    {
+        session(['home_login'=>false]);
+        session(['home_user'=>null]);
+
+        return redirect('home/login');
+    }
     //显视登录页面
     public function login()
     {
@@ -39,4 +47,5 @@ class LoginController extends Controller
     	//dd(session('home_user'));
     	return redirect('/home/index');
     }
+
 }

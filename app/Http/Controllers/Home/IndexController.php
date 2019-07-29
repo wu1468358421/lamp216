@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Home;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Cates;
+use DB;
 
 class IndexController extends BaseController
 {
@@ -16,6 +17,10 @@ class IndexController extends BaseController
             //$erji = Cates::where('pid',$v->id)->get();
             $v->sub = self::getPidCatesData($v->id);
         }
+        //获取商品
+        
+        // //获取pid为0的顶级分类
+        // $pids = DB::table('cates')->where('pid','0')->get();
         return $data;
     }
     /**
@@ -25,10 +30,21 @@ class IndexController extends BaseController
      */
     public function index()
     {
+        $topCate = Cates::where('id', 19)->first();
+        $list = $topCate->goods_from_top;
+        // dd($list);
         $cates_data = self::getPidCatesData(0);
-        
+
+        // foreach ($cates_data as $key => $value) {
+        //     dump($value->goods_from_top);
+        // }
+        // dd(11);
+        // dump($aa->id);
+        // dump($aa);
+        $pids = DB::table('cates')->where('pid','0')->get();
+        // dump($pids);
         // return view('home.index.index',['cates_data'=>$cates_data]);
-         return view('home.index.index');
+        return view('home.index.index',['pids'=>$pids]);
     }
 
     /**
